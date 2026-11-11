@@ -840,6 +840,7 @@ run ai-responses-test      Tinycast/Features/AI/Model/AIConnection.swift \
                            Tinycast/Features/AI/Model/AIRequestBody.swift \
                            Tinycast/Features/AI/Model/AIStreamDecoder.swift \
                            Tinycast/Features/AI/Model/AIResponsesDecoder.swift \
+                           Tinycast/Features/AI/Model/ChatReferences.swift \
                            Tinycast/Features/AI/Model/AIThinkTagDecoder.swift \
                            Tinycast/Features/AI/Model/AIProviderFailure.swift \
                            Tinycast/Features/AI/Model/AITool.swift \
@@ -907,6 +908,7 @@ run mcp-oauth-test         Tinycast/Platform/ExecutableLocator.swift \
                            Tinycast/Features/AI/Model/AIToolServer.swift \
                            Tinycast/Features/AI/Model/AIStreamDecoder.swift \
                            Tinycast/Features/AI/Model/AIResponsesDecoder.swift \
+                           Tinycast/Features/AI/Model/ChatReferences.swift \
                            Tinycast/Features/AI/Model/AIProviderFailure.swift \
                            Tinycast/Features/AI/Model/AIThinkTagDecoder.swift \
                            Tinycast/Features/AI/Model/AIRequest.swift \
@@ -922,6 +924,7 @@ run slow mcp-stdio-test    Tinycast/Platform/ExecutableLocator.swift \
                            Tinycast/Features/AI/Model/AIToolServer.swift \
                            Tinycast/Features/AI/Model/AIStreamDecoder.swift \
                            Tinycast/Features/AI/Model/AIResponsesDecoder.swift \
+                           Tinycast/Features/AI/Model/ChatReferences.swift \
                            Tinycast/Features/AI/Model/AIProviderFailure.swift \
                            Tinycast/Features/AI/Model/AIThinkTagDecoder.swift \
                            Tinycast/Features/AI/Model/AIRequest.swift \
