@@ -193,7 +193,6 @@ Tinycast is an all-in-one launcher, not a full window manager. Its window tools 
 - **Read selected text in every app.** Many apps and websites don't share it.
 - **Another app's Quick Look plugin takes your keys** (like Obsidian's).
 - **Duplicate images with Clop running.**
-- **Notes opening again after you close it** with text selected. Apple's Writing Tools cause this.
 - **One-time-password extensions that paste for you.**
 
 ## Not now, but maybe later
