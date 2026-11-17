@@ -757,6 +757,7 @@ final class AppCore {
         track(
             {
                 _ = $0.fileSearchScopes
+                _ = $0.fileSearchIncludesHiddenFiles
                 _ = $0.fileSearchIgnorePatterns
                 _ = $0.fileSearchRemovedDefaultPatterns
             }, reproject: { $0.fileSearchCoordinator.applyPolicy() })

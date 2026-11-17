@@ -65,6 +65,7 @@ enum SettingsFileKey: String, CaseIterable, Sendable {
     case dictationLanguage = "dictation.language"
     case fileSearchEnabled = "fileSearch.enabled"
     case fileSearchScopes = "fileSearch.scopes"
+    case fileSearchIncludesHiddenFiles = "fileSearch.includesHiddenFiles"
     case fileSearchIgnorePatterns = "fileSearch.ignorePatterns"
     case fileSearchRemovedDefaultPatterns = "fileSearch.removedDefaultPatterns"
     case fileSearchShowInLauncher = "fileSearch.showInLauncher"
