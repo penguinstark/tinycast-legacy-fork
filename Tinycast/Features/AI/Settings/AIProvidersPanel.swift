@@ -162,7 +162,7 @@ struct AIProvidersPanel: View {
     }
 
     private var listActions: some View {
-        HStack(spacing: Theme.Spacing.xs) {
+        HStack(spacing: 0) {
             Menu {
                 ForEach(AIProviderKind.allCases) { provider in
                     Button(provider.title) {
@@ -183,7 +183,12 @@ struct AIProvidersPanel: View {
             Button {
                 pendingRemoval = selectedConnection
             } label: {
+                // A borderless button hits only its glyph's bounds, and a minus is a hairline.
                 Image(systemName: "minus")
+                    .frame(
+                        width: Theme.Size.settingsRowButton, height: Theme.Size.settingsRowButton
+                    )
+                    .contentShape(Rectangle())
             }
             .buttonStyle(.borderless)
             .disabled(selectedConnection == nil)
@@ -192,7 +197,7 @@ struct AIProvidersPanel: View {
             Spacer(minLength: 0)
         }
         .padding(.horizontal, Theme.Spacing.xl)
-        .padding(.vertical, Theme.Spacing.md)
+        .padding(.vertical, Theme.Spacing.xxs)
     }
 
     // MARK: - Detail
