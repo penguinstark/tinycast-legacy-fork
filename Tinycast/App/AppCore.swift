@@ -30,7 +30,6 @@ final class AppCore {
         DictationModelStore(idleRelease: settings.dictationIdleRelease)
     @ObservationIgnored private(set) lazy var hyperKey = HyperKeyManager(
         settings: settings, hotKeys: hotKeys)
-    @ObservationIgnored private lazy var dictationKey = DictationKeyManager(hotKeys: hotKeys)
     let windowMover = WindowMover()
     let spaceSwitcher = SpaceSwitcher()
     let inputSourceSwitcher = InputSourceSwitcher()
@@ -354,7 +353,6 @@ final class AppCore {
             currencyRates.start()
 
             hyperKey.healthTicker = healthTicker
-            dictationKey.healthTicker = healthTicker
             hotKeys.modifierTapMonitor.healthTicker = healthTicker
             snippetListener.healthTicker = healthTicker
 
@@ -429,8 +427,6 @@ final class AppCore {
             // After `hotKeys.start`: Secure Input equivalents are built from the loaded bindings.
             hyperKey.onProblem = { [weak self] in self?.showMessage($0, tone: .danger) }
             hyperKey.start()
-            dictationKey.onProblem = { [weak self] in self?.showMessage($0, tone: .danger) }
-            dictationKey.start()
 
             snippetsStore.onSnapshot = { [weak self] snapshot in
                 guard let self else { return }
@@ -600,9 +596,8 @@ final class AppCore {
         if settings.dictationEnabled { dictationCoordinator.prepareForTermination() }
         settingsFile?.flush()
         clipboardTextIndexer?.stop()
-        // HID remaps first: they outlive the process.
+        // Caps Lock first: its remap is the one teardown that outlives the process.
         hyperKey.prepareForTermination()
-        dictationKey.prepareForTermination()
         windowLayoutCoordinator.prepareForTermination()
         roomCoordinator.prepareForTermination()
         inputSourceSwitcher.endSession()

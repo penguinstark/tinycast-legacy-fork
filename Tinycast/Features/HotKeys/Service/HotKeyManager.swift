@@ -74,7 +74,6 @@ final class HotKeyManager {
     private var bindings: [HotKeyAction: HotKeyBinding] = [:]
     /// Part of `AppIndex`'s cache key: a bound entry leaves the launcher's Suggestions.
     private(set) var revision = 0
-    var bindsDictationKey: Bool { bindings.values.contains { $0.shortcut?.isDictationKey == true } }
     @ObservationIgnored private var candidateActionsCache: [HotKeyAction]?
     /// Bound combos left unregistered because `allowsAction` refuses them.
     @ObservationIgnored private var suppressedActions: Set<HotKeyAction> = []
