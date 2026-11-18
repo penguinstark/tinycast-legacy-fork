@@ -600,6 +600,7 @@ run slow snippets-test     Tinycast/Platform/NotificationToken.swift \
                            Tinycast/Features/Snippets/Service/*.swift \
                            Tinycast/DesignSystem/FormTextSelection.swift \
                            Tinycast/Features/Snippets/UI/SnippetEditorSession.swift \
+                           Tinycast/Features/Snippets/UI/SnippetArgumentsState.swift \
                            Tinycast/Features/TextInjection/Service/*.swift
 run notes-test             Tinycast/Platform/Signposts.swift \
                            $L/SearchRelevance.swift \
