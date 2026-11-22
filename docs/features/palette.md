@@ -287,6 +287,8 @@ collapsing remain separate presses. The next Escape clears that flag and collaps
 Menus and argument fields still take precedence, and sub-screen navigation keeps its own behavior.
 A summon clears `forceExpanded` whenever the field is empty, so a launcher Pop to Root Search
 restores still opens as the bar; a kept query, screen or extension restores expanded as before.
+The list is only mounted after `syncPaletteSize()` has grown the window: mounted at bar height, its
+scroll view keeps the bar's insets and rests under the header.
 
 The material is a background of the header, not a wrapper around it: the field keeps its one structural
 position, and nothing paints its blur over the row. While compact the row is

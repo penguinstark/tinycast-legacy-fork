@@ -43,6 +43,8 @@ struct RootPaletteView: View {
     /// The pending scroll request; modes are exclusive, so one piece of state serves all.
     @State private var scroll = ScrollIntent(kind: .top)
     @State private var compactSelection = CompactBarSelection()
+    /// False until the window has grown; a list mounted at bar height keeps stale insets.
+    @State private var expandedContentReady = false
 
     /// Compact vs. full; the source of truth is on `AppCore`, so the two can't disagree.
     private var isCollapsed: Bool { core.paletteCoordinator.paletteIsCollapsed }
@@ -315,7 +317,7 @@ struct RootPaletteView: View {
         return keyHandlers(
             stateObservers(
                 Group {
-                    if isCollapsed {
+                    if isCollapsed || !expandedContentReady {
                         Color.clear
                     } else {
                         screen.body(selection: sel, scroll: scroll)
@@ -509,6 +511,7 @@ struct RootPaletteView: View {
             }
             // The first show builds this view after `prepare`, so no handler saw that reset.
             .onAppear {
+                expandedContentReady = !isCollapsed
                 searchFocused = !screen.hidesSearchField
                 land()
                 focusPendingArgument()
@@ -517,7 +520,14 @@ struct RootPaletteView: View {
             // Several paths flip `paletteIsCollapsed`, so resize the window to match.
             .onChange(of: core.paletteCoordinator.paletteIsCollapsed) {
                 resetCompactSelection()
+                expandedContentReady = false
                 core.paletteCoordinator.syncPaletteSize()
+            }
+            .task(id: isCollapsed) {
+                guard !isCollapsed else { return }
+                await Task.yield()
+                guard !Task.isCancelled else { return }
+                expandedContentReady = true
             }
     }
 
