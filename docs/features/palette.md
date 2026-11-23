@@ -291,7 +291,9 @@ The list is only mounted after `syncPaletteSize()` has grown the window: mounted
 scroll view keeps the bar's insets and rests under the header.
 
 The material is a background of the header, not a wrapper around it: the field keeps its one structural
-position, and nothing paints its blur over the row. While compact the row is
+position, and nothing paints its blur over the row. The expanded header carries its own frost-and-scrim
+backing so rows scrolling under it are masked — the fork's behind-window frost cannot do that the way
+upstream's within-window glass did. While compact the row is
 narrowed to the capsule, and so is the top drag strip, so neither reaches under a button. The dialog
 dimming is skipped while compact, since the window between the shapes is transparent and a dimming
 layer would fill it. See [ui.md](../ui.md#panel-structure) for the shapes and the reveal.

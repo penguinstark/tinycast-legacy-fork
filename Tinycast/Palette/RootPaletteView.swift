@@ -743,6 +743,14 @@ struct RootPaletteView: View {
                         onRun: runCompactCommand)
                 }
             }
+            // Glass used to mask rows scrolling under the header; the behind-window frost cannot,
+            // so the expanded header needs the panel's own backing to keep rows out of this band.
+            .background(alignment: .topLeading) {
+                if !isCollapsed {
+                    FrostedBackgroundView()
+                        .overlay { Theme.Colors.panelScrim }
+                }
+            }
             // Next turn, once the show's `land()` and search refocus are done, so neither undoes it.
             .onChange(of: vm.pendingArgumentEntryID) {
                 Task { @MainActor in focusPendingArgument() }
