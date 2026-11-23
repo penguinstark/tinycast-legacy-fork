@@ -13,6 +13,7 @@ contradicts the code is a defect, so fix it in the commit that made it wrong.
 | [testing.md](testing.md)           | How to verify a change: the definition of done, the harnesses, purity checks, budgets, the manual sweep | a harness moves, or a budget changes            |
 | [development.md](development.md)   | The local loop: setup, build, dev channel, editor, format/lint, generated data                          | the local toolchain changes                     |
 | [release.md](release.md)           | How a local build becomes a DMG: packaging, signing checks, distribution                                | the pipeline changes                            |
+| [upstream.md](upstream.md)         | How the fork tracks the original app: the cherry-pick loop, ported commits, deliberate skips             | an upstream commit is ported or skipped         |
 | [signing.md](signing.md)           | The local self-signed identity, the Developer ID and the notary environment                             | the signing setup changes                       |
 | [ui.md](ui.md)                     | The design system: tokens, panel chrome, row grammar, frost, dialogs and HUDs                           | a token or a presentation rule changes          |
 

@@ -110,7 +110,7 @@ private struct AboutLink: Identifiable {
         AboutLink(
             id: "license", glyph: .symbol("doc.text"), title: String(localized: "License"),
             detail: String(localized: "GNU AGPL-3.0"),
-            url: URL(string: "https://github.com/penguinstark/tinycast-legacy-legacy/blob/main/LICENSE")!)
+            url: URL(string: "https://github.com/penguinstark/tinycast-legacy/blob/main/LICENSE")!)
     ]
 }
 

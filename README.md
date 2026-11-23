@@ -37,7 +37,7 @@ Requires macOS 14.4 or later and Xcode 16.2 with Swift 6.0.
 
 ```sh
 git clone https://github.com/penguinstark/tinycast-legacy.git
-cd tinycast
+cd tinycast-legacy
 ./Scripts/local-signing.sh   # once: a stable self-signed identity for local builds
 open Tinycast.xcodeproj      # ⌘R
 ```
