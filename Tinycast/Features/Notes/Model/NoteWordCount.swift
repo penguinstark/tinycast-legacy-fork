@@ -1,7 +1,6 @@
 import Foundation
 
 enum NoteWordCount {
-    @concurrent
     static func count(in source: String) async -> Int {
         let text = source as NSString
         var count = 0

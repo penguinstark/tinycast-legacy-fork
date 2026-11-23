@@ -141,17 +141,17 @@ struct HotKeyDispatchTest {
             manager.setBinding(.combo(shortcut), for: action)
         }
         func registered(_ action: HotKeyAction) -> Bool { center.entries[action.defaultsKey] != nil }
-        check("allowed actions register", actions.allSatisfy(registered))
+        check("allowed actions register", actions.allSatisfy { registered($0) })
         refused = Set(actions)
         manager.applyAllowance()
-        check("refused actions unregister", !actions.contains(where: registered))
+        check("refused actions unregister", !actions.contains { registered($0) })
         let late = HotKeyAction.quicklink(id: UUID())
         refused.insert(late)
         manager.setBinding(.combo(KeyShortcut(carbonKeyCode: kVK_ANSI_Q, carbonModifiers: cmdKey)), for: late)
         check("binding a refused action leaves it unregistered", !registered(late))
         refused = []
         manager.applyAllowance()
-        check("re-allowed actions register again", (actions + [late]).allSatisfy(registered))
+        check("re-allowed actions register again", (actions + [late]).allSatisfy { registered($0) })
 
         let chord = KeyShortcut.hyperChord(includesShift: false)
         let hyper = KeyShortcut(

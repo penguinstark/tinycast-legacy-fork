@@ -45,10 +45,10 @@ final class ForwardedQuickPressMonitor {
         IOHIDManagerScheduleWithRunLoop(manager, CFRunLoopGetMain(), CFRunLoopMode.commonModes.rawValue)
     }
 
-    isolated deinit {
+    deinit {MainActor.assumeIsolated {
         IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetMain(), CFRunLoopMode.commonModes.rawValue)
         IOHIDManagerClose(manager, 0)
-    }
+    }}
 
     func cancelHold() {
         press = PhysicalHyperKeyPress(mapping: mapping)
